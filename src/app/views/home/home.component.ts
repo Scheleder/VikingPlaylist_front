@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { PlaylistAddDialogComponent } from './playlist-add-dialog/playlist-add-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -15,15 +16,15 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addLive(): void {
-    /* 
-    const dialogRef = this.dialog.open(LiveFormDialogComponent, {
+  addMusic(): void {
+    
+    const dialogRef = this.dialog.open(PlaylistAddDialogComponent, {
       minWidth: '400px'
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
-     */
+    
   }
   
 

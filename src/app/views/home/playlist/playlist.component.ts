@@ -40,7 +40,7 @@ export class PlaylistComponent implements OnInit {
 
   onDelete(key:string){
     this.dialog.open(PlaylistDeleteDialogComponent, {
-      width: '300px',
+      width: '320px',
       panelClass: 'confirm-dialog-container',
       position: { top: "10px" },
       disableClose: true,

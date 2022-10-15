@@ -5,33 +5,26 @@
 }
 .content-container{
     margin: 5px;
-    color: #8f9cb5;
-    display: flex;
-    align-items:center;
-    display:inline-block;
-}
-.confirm-dialog-container #close-icon{
-    margin-left: auto;
-    order: 2;
-    font-weight: bolder;
-}
-.confirm-dialog-container #close-icon:hover{
-cursor: pointer;
-}
-
-#no-button{
-margin-left: 20px;
-margin-top: 10px;
-}
-
-#yes-button{
-margin-top: 20px;
-  margin-left: 30px;
-}
-
-span.content-span{
-    padding:  10px;
-    text-align: center;
+    color:gray;
     font-size: 20px;
-   
+    text-align: center;
 }
+
+
+.mat-dialog-actions{
+    display: 1 1 auto;
+    justify-content: space-between;
+  }
+
+  .mat-dialog-actions #cancel{
+    background-color:khaki;
+    width:100px;
+    margin:10px
+  }
+
+  .mat-dialog-actions #ok{
+    background-color:red;
+    width:100px;
+    margin: 10px;
+  }
+

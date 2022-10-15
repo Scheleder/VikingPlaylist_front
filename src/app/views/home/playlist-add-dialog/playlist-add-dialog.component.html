@@ -1,41 +1,28 @@
-
 <h1 mat-dialog-title>Adicionar Música</h1>
 <div mat-dialog-content>
     <form class="example-form" [formGroup]="playlistForm">
-        <mat-form-field class="example-full-width">
-            <mat-label>Nome da Live</mat-label>
-            <input matInput placeholder="" formControlName="liveName" name="liveName">
-        </mat-form-field>
-      
-        <mat-form-field class="example-full-width">
-            <mat-label>Nome do Canal</mat-label>
-            <input matInput placeholder="" formControlName="channelName" name="channelName">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Nome da Música</mat-label>
+            <input matInput placeholder="" formControlName="name" name="name">
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Link Completo</mat-label>
-            <input matInput placeholder="" formControlName="liveLink" name="liveLink">
+            <input matInput placeholder="" formControlName="link" name="link">
         </mat-form-field>
 
-        <div fxLayout="row wrap">
-        <div fxFlex="50" fxFill fxLayoutAlign="start center">
-            <mat-form-field>
-                <mat-label>Data da Live</mat-label>
-                <input matInput [matDatepicker]="picker" formControlName="liveDate">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-        </div>
-        <div fxFlex="50" fxFill fxLayoutAlign="start center">
-            <mat-form-field>
-                <mat-label>Horário da Live</mat-label>
-                <input matInput type="time" placeholder="" formControlName="liveTime" #time/>
-            </mat-form-field>
-        </div>
-        </div>
+        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Estilo</mat-label>
+        <mat-select matInput formControlName="style" name="style">
+            <mat-option *ngFor="let genre of allGenres" [value]="genre.name">
+            {{genre.name}}
+            </mat-option>
+        </mat-select>
+        </mat-form-field>
+
     </form>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="cancel()">Cancelar</button>
-  <button mat-raised-button color="primary" (click)="createLive()">Adicionar</button>
+  <button mat-button id="cancel" (click)="cancel()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="createLive()">Adicionar Música</button>
 </div>
