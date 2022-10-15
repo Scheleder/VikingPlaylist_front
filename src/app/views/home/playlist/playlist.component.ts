@@ -12,10 +12,8 @@ import { PlaylistDeleteDialogComponent } from '../playlist-delete-dialog/playlis
 })
 export class PlaylistComponent implements OnInit {
 
-  livesPrevious!: Playlist[];
-  livesNext!: Playlist[];
-  next: boolean = false;
-  previous: boolean = false;
+  playlistsByStyle!: Playlist[];
+  ready: boolean = false;
   
   constructor(
     public playlistService : PlaylistService,
@@ -29,22 +27,13 @@ export class PlaylistComponent implements OnInit {
 
   getPlaylists(){
 
-    this.playlistService.getPlaylistsWithFlag('previous').subscribe(data=>{
-      this.livesPrevious = data.content;
-      console.log(this.livesPrevious);
-      this.livesPrevious.forEach(live => {
-        live.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(live.link);
+    this.playlistService.getPlaylistsWithFlag("all").subscribe(data=>{
+      this.playlistsByStyle = data.content;
+      console.log(this.playlistsByStyle);
+      this.playlistsByStyle.forEach(playlist => {
+        playlist.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(playlist.link);
       });
-        this.previous=true;
-    });
-
-    this.playlistService.getPlaylistsWithFlag('next').subscribe(data=>{
-      this.livesNext = data.content;
-      console.log(this.livesNext);
-      this.livesNext.forEach(live => {
-        live.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(live.link);
-      });
-      this.next=true;
+      this.ready=true;
     });
 
   }

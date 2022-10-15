@@ -1,8 +1,11 @@
 <mat-toolbar>
     <mat-toolbar-row style="font-size: 1.5rem; height:80px;">
-      <span><mat-icon aria-setsize="size:80px">turntable</mat-icon>Playlist<mat-icon aria-setsize="size:80px">turntable</mat-icon></span>
+      <span><mat-icon style="font-size: 22px; vertical-align: text-bottom;">library_music</mat-icon> Playlist<mat-icon aria-setsize="size:80px">turntable</mat-icon></span>
       <span class="example-spacer"></span>
-      <button mat-raised-button (click)="addLive()"><mat-icon>add</mat-icon>Live</button>
+      <button mat-raised-button ><mat-icon>playlist_add_check</mat-icon> Tocar Selecionadas</button>
+      <button mat-raised-button ><mat-icon>pause</mat-icon> Pausar</button>
+      <button mat-raised-button (click)="addLive()"><mat-icon>add</mat-icon> Adicionar Música</button>
+      <button mat-raised-button ><mat-icon>settings</mat-icon> Configurações</button>
     </mat-toolbar-row>
 </mat-toolbar>
 <app-playlist></app-playlist>

@@ -9,7 +9,7 @@ import { ResponsePageable } from '../model/responsePageable.model';
 })
 export class PlaylistService {
 
-  apiUrl = 'http://localhost:8080/playlists';
+  apiUrl = 'http://localhost:8080/playlists/';
   
   httpOptions = {
     headers: new HttpHeaders({

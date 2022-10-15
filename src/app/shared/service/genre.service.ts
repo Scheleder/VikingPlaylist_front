@@ -9,7 +9,7 @@ import { ResponsePageable } from '../model/responsePageable.model';
 })
 export class GenreService {
 
-  apiUrl = 'http://localhost:8080/genres';
+  apiUrl = 'http://localhost:8080/genres/';
   
   httpOptions = {
     headers: new HttpHeaders({

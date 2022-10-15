@@ -1,24 +1,24 @@
 <mat-tab-group class="tab">
-    <mat-tab label="PRÓXIMAS" fxLayout="row wrap">
-     <mat-progress-bar *ngIf="!next" mode="indeterminate"></mat-progress-bar>
-      <div *ngIf="next" fxLayout="row wrap" class="container">
-        <div class= "ng-content" *ngFor="let live of livesNext"
+    <mat-tab label="TUDO" fxLayout="row wrap">
+     <mat-progress-bar *ngIf="!ready" mode="indeterminate"></mat-progress-bar>
+      <div *ngIf="ready" fxLayout="row wrap" class="container">
+        <div class= "ng-content" *ngFor="let playlist of playlistsByStyle"
           fxFlex="0 1 calc(33% - 11px)"
           fxFlex.lt-md="0 1 calc(50% - 11px)"
           fxFlex.lt-sm="100%">
           <div class="grid-item">
             <div class="card-title" fxLayout="row">
-              <span class="card-name" fxFlex="85" fxLayoutAlign="start center">{{live.link}}</span>
+              <span class="card-name" fxFlex="85" fxLayoutAlign="start center">{{playlist.name}}</span>
               <span fxFlex></span>
-              <span fxFlex="8" fxLayoutAlign="center center"><button mat-icon-button class="icon" (click)="onDelete(live.id)" aria-label="Excluir"><mat-icon>delete</mat-icon></button></span>
+              <span fxFlex="8" fxLayoutAlign="center center"><button mat-icon-button class="icon" (click)="onDelete(playlist.id)" aria-label="Excluir"><mat-icon>delete</mat-icon></button></span>
             </div>    
             <div class="card-title" fxLayout="column">
-                  <span class="card-channel"fxLayoutAlign="start center">Canal: {{live.name}}</span> 
-                  <span class="card-date" fxLayoutAlign="start center">Data da Live: {{live.date | localDateTime}}</span>    
+                  <span class="card-channel"fxLayoutAlign="start center">{{playlist.style}}</span> 
+                  <span class="card-date" fxLayoutAlign="start center">Adicionado em: {{playlist.date | localDateTime}}</span>    
             </div>
             <div class="card-content" fxLayoutAlign="center center">
               <div>
-                <iframe [src]="live.urlSafe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe [src]="playlist.urlSafe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
             </div>
           </div>
