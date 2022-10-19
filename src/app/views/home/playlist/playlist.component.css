@@ -7,7 +7,7 @@
     margin: 0px;
   }
 
-  .grid-item {
+  #grid-item {
     background-color: #EEE; 
     border: 1px solid #CCC; 
     border-top-left-radius: 10px; 
@@ -26,20 +26,20 @@
   padding-top: 0px; 
   padding-right: 10px; 
   margin-bottom: 0px; 
-
+min-height: 40px;
 
 }
 
 .icon{
   padding:0px;
-  vertical-align: text-top;
-  color:#D99;
-  height: 10px;
+  vertical-align: top;
+  color:darkred;
+ 
 }
 
 .card-date{
   font-size: 0.8rem;
-  color: black;
+  color:#AAA;
   padding-bottom: 8px;
 }
 

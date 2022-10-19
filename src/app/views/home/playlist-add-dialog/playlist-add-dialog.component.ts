@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import * as moment from 'moment';
 import { Genre } from 'src/app/shared/model/genre.model';
 import { GenreService } from 'src/app/shared/service/genre.service';
 import { PlaylistService } from 'src/app/shared/service/playlist.service';
@@ -12,9 +11,11 @@ import { PlaylistService } from 'src/app/shared/service/playlist.service';
   styleUrls: ['./playlist-add-dialog.component.css']
 })
 export class PlaylistAddDialogComponent implements OnInit {
-
   public playlistForm!: FormGroup;
   allGenres!: Genre[];
+  //selectedValue: string = '';
+  //novo : any = [{id:999999999, name:'Novo...'}];
+  
 
   constructor(
     public genreService : GenreService,
@@ -32,10 +33,18 @@ export class PlaylistAddDialogComponent implements OnInit {
     });
   }
 
+
+  getOptionText(genre : Genre) {
+    return genre.name;
+  }
+
   getGenres(){
     this.genreService.getGenres().subscribe(data=>{
       this.allGenres = data.content;
-      console.log(this.allGenres);
+      // console.log(this.allGenres);
+      // this.novo.name="Novo...";
+      // this.allGenres.push(this.novo);
+      // console.log("AQUIIIIIII"+this.novo.name)
     });
 
   }

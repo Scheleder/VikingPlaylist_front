@@ -3,26 +3,41 @@
     <form class="example-form" [formGroup]="playlistForm">
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Nome da Música</mat-label>
-            <input matInput placeholder="" formControlName="name" name="name">
+            <input matInput formControlName="name" name="name">
+            <mat-error *ngIf="playlistForm.hasError('required', 'name')">Preencha o nome da música</mat-error>
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Link Completo</mat-label>
-            <input matInput placeholder="" formControlName="link" name="link">
+            <mat-label>Código de Incorporação</mat-label>
+            <input matInput formControlName="link" name="link">
+            <mat-error *ngIf="playlistForm.hasError('required', 'link')">Preencha o código de incorporação</mat-error>
         </mat-form-field>
 
-        <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Estilo</mat-label>
-        <mat-select matInput formControlName="style" name="style">
-            <mat-option *ngFor="let genre of allGenres" [value]="genre.name">
-            {{genre.name}}
-            </mat-option>
-        </mat-select>
-        </mat-form-field>
+
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Estilo</mat-label>
+                <mat-select matInput formControlName="style" name="style">
+                    <mat-option *ngFor="let genre of allGenres" [value]="genre.name">
+                    {{genre.name}}
+                    </mat-option>
+                </mat-select>
+                
+                <mat-error *ngIf="playlistForm.hasError('required', 'style')" ng-model="isError">Selecione o estilo Musical</mat-error>
+            </mat-form-field>
+
+            <!-- <div *ngIf="selectedValue==='Novo...'" playlistForm.style.value="">
+            <mat-form-field class="example-full-width" appearance="fill"> 
+                <mat-label>Adicione um Estilo</mat-label>
+                    <input type= "text" matInput formControlName="style" name="style" > 
+            </mat-form-field>
+            </div> -->
 
     </form>
 </div>
 <div mat-dialog-actions>
   <button mat-button id="cancel" (click)="cancel()">Cancelar</button>
-  <button mat-raised-button color="primary" (click)="createLive()">Adicionar Música</button>
+  <button mat-raised-button color="primary" 
+  [disabled]="!playlistForm.valid" 
+  (click)="createLive()">Adicionar Música</button>
 </div>

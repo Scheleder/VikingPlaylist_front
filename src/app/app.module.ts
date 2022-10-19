@@ -26,7 +26,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { GenreManageDialogComponent } from './views/home/genre-manage-dialog/genre-manage-dialog.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FilterPipe } from './shared/pipe/filter.pipe';
 
 
 @NgModule({
@@ -36,7 +39,10 @@ import { MatSelectModule } from '@angular/material/select';
     PlaylistComponent,
     PlaylistAddDialogComponent,
     PlaylistDeleteDialogComponent,
-    LocalDateTimePipe
+    LocalDateTimePipe,
+    GenreManageDialogComponent,
+    FilterPipe
+
   ],
   imports: [
     BrowserModule,
@@ -58,8 +64,10 @@ import { MatSelectModule } from '@angular/material/select';
     FormsModule,
     ReactiveFormsModule,
     MatProgressBarModule,
+    MatAutocompleteModule,
+    FlexLayoutModule
   ],
-  providers: [LocalDateTimePipe],
+  providers: [LocalDateTimePipe, FilterPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

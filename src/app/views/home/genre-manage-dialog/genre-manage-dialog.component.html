@@ -1,0 +1,33 @@
+
+
+<div class="list example-full-width" fxLayout="row">
+    <span fxFlex="80" class="title" fxLayoutAlign="start center">Estilos Musicais</span>
+    <span fxFlex></span>
+    <span fxFlex="5" class="close" fxLayoutAlign="end end"><button mat-icon-button class="icon" (click)="closeDialog()" aria-label="Sair"><mat-icon>close</mat-icon></button></span>
+</div>
+
+<div mat-dialog-content>
+    <div *ngFor="let genre of allGenres">
+        <div class="list" fxLayout="row">
+            <span fxFlex="5" fxLayoutAlign="start center">
+                <button mat-icon-button class="icon" (click)="deleteGenre(genre.id)" aria-label="Excluir"><mat-icon>delete_outline</mat-icon></button></span>
+            <span fxFlex></span>
+            <span fxFlex="85" class="name" fxLayoutAlign="start center">{{genre.name}}</span>
+  
+        </div>  
+    </div>
+    
+</div>
+<div mat-dialog-actions>
+    <form class="example-form" [formGroup]="genreForm">
+        <mat-form-field class="example-full-width" >
+            <mat-label>Adicionar novo estilo</mat-label>
+            <input matInput formControlName="name" name="name">
+            <mat-error *ngIf="genreForm.hasError('required', 'name')">Preencha o nome do estilo musical</mat-error>
+        </mat-form-field>
+    </form>
+
+  <button mat-raised-button color="primary" 
+  [disabled]="!genreForm.valid" 
+  (click)="addGenre()">Adicionar Estilo</button>
+</div>
