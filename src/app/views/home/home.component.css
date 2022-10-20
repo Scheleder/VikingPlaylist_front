@@ -4,4 +4,10 @@
   .example-spacer {
     flex: 1 1 auto;
   }
-  
+  .mat-toolbar{
+    background-color: #DDD;
+  }
+  .mat-raised-button{
+    width: 180px;
+    margin: 5px;
+  }

@@ -27,7 +27,7 @@ export class PlaylistAddDialogComponent implements OnInit {
   ngOnInit(): void {
     this.getGenres();
     this.playlistForm = this.fb.group({
-      name: ['',[Validators.required]],
+      name: ['',[Validators.nullValidator]],
       link: ['',[Validators.required]],
       style: ['',[Validators.required]]
     });
@@ -44,7 +44,7 @@ export class PlaylistAddDialogComponent implements OnInit {
       // console.log(this.allGenres);
       // this.novo.name="Novo...";
       // this.allGenres.push(this.novo);
-      // console.log("AQUIIIIIII"+this.novo.name)
+      
     });
 
   }
@@ -53,6 +53,15 @@ export class PlaylistAddDialogComponent implements OnInit {
     //let newDate: moment.Moment = moment.utc(this.playlistForm.value.date).local();
     //this.playlistForm.value.date = newDate.format("YYYY-MM-DD") + 'T' + this.playlistForm.value.liveTime;
     //console.log(this.playlistForm.value);
+    let embed : string = this.playlistForm.value.link;
+    let inicio_url = embed.indexOf("src=")+5;
+    let fim_url = embed.indexOf("title=")-2;
+    let inicio_title = embed.indexOf("title=")+7;
+    let fim_title = embed.indexOf("frameborder=")-2;
+    this.playlistForm.value.link = embed.slice(inicio_url, fim_url);
+    this.playlistForm.value.name = embed.slice(inicio_title, fim_title);
+    console.log("LINK => "+this.playlistForm.value.link);
+    console.log("TITLE ==> "+this.playlistForm.value.name);
     this.rest.postPlaylists(this.playlistForm.value).subscribe(result => {});
     this.dialogRef.close();
     this.playlistForm.reset();
@@ -66,6 +75,7 @@ export class PlaylistAddDialogComponent implements OnInit {
 
   closeDialog() {
     this.dialogRef.close(false);
+    
   }
 
 }

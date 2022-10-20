@@ -30,6 +30,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { GenreManageDialogComponent } from './views/home/genre-manage-dialog/genre-manage-dialog.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FilterPipe } from './shared/pipe/filter.pipe';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { FilterPipe } from './shared/pipe/filter.pipe';
     ReactiveFormsModule,
     MatProgressBarModule,
     MatAutocompleteModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatMenuModule
   ],
   providers: [LocalDateTimePipe, FilterPipe],
   bootstrap: [AppComponent]
